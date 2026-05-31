@@ -1,0 +1,15 @@
+id: liquidity_vs_lockin
+statement: >
+  Balance liquidity against lock-in. Keep an accessible buffer for near-term needs, and
+  be deliberate about locked or low-yield instruments — don't over-park long-horizon money
+  in FDs whose real (post-tax, post-inflation) return may lag goal requirements.
+rule_of_thumb: "accessible buffer covers near-term needs; avoid excess low-yield FD parking for long goals"
+what_to_check: >
+  Look at fds and EPF/PPF lock-ins versus emergency_fund and goal horizons. Flag large FD
+  balances when long-horizon goals would be better served by growth assets, and flag thin
+  liquidity when too much is locked.
+sources:
+  - title: "RBI Financial Education — deposits, liquidity and returns"
+    url: "https://www.rbi.org.in/financialeducation/Home.aspx"
+  - title: "SEBI Investor — matching liquidity to needs"
+    url: "https://investor.sebi.gov.in/"

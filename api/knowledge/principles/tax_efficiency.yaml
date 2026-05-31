@@ -1,0 +1,15 @@
+id: tax_efficiency
+statement: >
+  Use available tax deductions efficiently. Under the old regime, Section 80C allows up
+  to ₹1.5 lakh/year via instruments like EPF (employee share), ELSS, and PPF. Choose the
+  old vs new regime based on whether your deductions outweigh the new regime's lower slabs.
+rule_of_thumb: "tax_saving_80c_utilization -> 1.0 if on old regime with headroom; pick regime by deduction fit"
+what_to_check: >
+  Compare tax_saving_80c_utilization against 1.0 for old-regime users with spare ₹1.5L
+  headroom (under-utilizing 80C). For new-regime users, 80C is largely irrelevant — check
+  regime fit given their deductions rather than pushing 80C.
+sources:
+  - title: "Income Tax Department — Deductions under Section 80C"
+    url: "https://incometaxindia.gov.in/"
+  - title: "Income Tax Department — Old vs New tax regime comparison"
+    url: "https://www.incometax.gov.in/iec/foportal/"

@@ -1,0 +1,15 @@
+id: goal_alignment
+statement: >
+  Match the instrument's horizon and risk to the goal's horizon. Use equity-oriented
+  investments for long-term goals (5+ years), and debt/FD/liquid instruments for short-term
+  goals, so market volatility can't derail money you need soon.
+rule_of_thumb: "long-horizon goals -> equity-tilted; short-horizon goals -> debt/FD/liquid"
+what_to_check: >
+  For each goal, compare its horizon_years against how the corresponding money is invested.
+  Flag short-horizon goals funded by volatile equity, and long-horizon goals sitting in
+  low-yield cash/FDs that may not beat inflation.
+sources:
+  - title: "SEBI Investor — Goal-based investing and time horizon"
+    url: "https://investor.sebi.gov.in/"
+  - title: "AMFI — Aligning mutual fund choices to financial goals"
+    url: "https://www.amfiindia.com/investor-corner"

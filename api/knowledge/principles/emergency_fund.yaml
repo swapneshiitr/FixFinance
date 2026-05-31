@@ -1,0 +1,15 @@
+id: emergency_fund
+statement: >
+  Keep an emergency fund of about 3–6 months of essential expenses in a liquid,
+  easily accessible form (savings account, liquid/overnight funds), separate from
+  money earmarked for goals or investing.
+rule_of_thumb: "emergency_fund_months should fall between 3 and 6"
+what_to_check: >
+  Compare the derived emergency_fund_months (emergency_fund / total_monthly_expenses)
+  against the 3–6 band. Below 3 is under-funded; well above 6 may be over-parked in
+  low-yield cash that could work harder toward goals.
+sources:
+  - title: "SEBI Investor — Financial planning and the need for a contingency/emergency fund"
+    url: "https://investor.sebi.gov.in/"
+  - title: "RBI Financial Education — managing money and savings"
+    url: "https://www.rbi.org.in/financialeducation/Home.aspx"

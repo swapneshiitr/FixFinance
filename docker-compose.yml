@@ -1,0 +1,55 @@
+# FixFinance — local dev stack (LLD §12): db (Postgres+pgvector) / api (FastAPI) / web (Next.js).
+# The LLM runs on the host via Ollama; the api reaches it at host.docker.internal:11434.
+
+services:
+  db:
+    image: pgvector/pgvector:pg16        # Postgres 16 with the pgvector extension preinstalled
+    container_name: fixfinance-db
+    environment:
+      POSTGRES_USER: fixfinance
+      POSTGRES_PASSWORD: fixfinance
+      POSTGRES_DB: fixfinance
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Auto-run the DDL on first boot (relational + pgvector + trace tables).
+      - ./api/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fixfinance -d fixfinance"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build: ./api
+    container_name: fixfinance-api
+    env_file: .env
+    environment:
+      # Inside the compose network the DB host is the service name `db`.
+      DATABASE_URL: postgresql+asyncpg://fixfinance:fixfinance@db:5432/fixfinance
+      # Ollama runs natively on the host (Metal GPU); the container reaches it via
+      # host.docker.internal. (.env uses localhost for host-side runs.)
+      LLM_BASE_URL: http://host.docker.internal:11434/v1
+    extra_hosts:
+      - "host.docker.internal:host-gateway"   # ensures the host alias resolves (Linux/Colima)
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./api:/app          # live-reload during dev
+
+  web:
+    build: ./web
+    container_name: fixfinance-web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    # The browser calls the API on the host (localhost:8000); no bind-mount so the
+    # image's node_modules aren't shadowed — rebuild (`--build web`) on UI changes.
+
+volumes:
+  pgdata:

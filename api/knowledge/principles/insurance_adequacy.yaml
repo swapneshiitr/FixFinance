@@ -1,0 +1,14 @@
+id: insurance_adequacy
+statement: >
+  Carry adequate protection before optimizing investments: pure term life cover of
+  roughly 10–15× annual income for those with dependents, and a health insurance
+  floor (commonly ≥ ₹5–10 lakh, higher for families via a family floater).
+rule_of_thumb: "term_life_cover >= 10x annual income (if dependents); health_insurance_cover >= 500000"
+what_to_check: >
+  Check term_life_cover against ~10–15× annual income when dependents > 0, and
+  health_insurance_cover against a ₹5–10L floor. Zero cover with dependents is a red flag.
+sources:
+  - title: "IRDAI — Insurance basics and consumer education (Policyholder Protection)"
+    url: "https://irdai.gov.in/"
+  - title: "SEBI Investor — Insure before you invest (risk protection first)"
+    url: "https://investor.sebi.gov.in/"

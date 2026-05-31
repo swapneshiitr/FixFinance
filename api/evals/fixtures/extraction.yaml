@@ -1,0 +1,24 @@
+# Extraction fixtures — run the real extract_facts path, assert on the parsed draft.
+name: lost_zero_extraction
+kind: extraction
+transcript: "I put about 15,000 a month into equity index funds via SIP."
+expect:
+  - path: sips[0].monthly_amount
+    equals: 15000
+  - path: sips[0].category
+    equals: equity
+---
+name: lakh_normalization
+kind: extraction
+transcript: "My take-home is about 1.2 lakh a month after deductions."
+expect:
+  - path: monthly_take_home
+    approx: 120000
+    tol: 1
+---
+name: denial_empty_list
+kind: extraction
+transcript: "I don't have any fixed deposits at all."
+expect:
+  - path: fds
+    equals: []

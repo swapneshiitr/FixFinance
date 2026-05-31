@@ -1,0 +1,15 @@
+id: asset_allocation
+statement: >
+  Hold an age- and goal-aware mix of equity and debt. The "100 − age" heuristic (that
+  share in equity) is only a starting frame — actual allocation should reflect risk
+  appetite and goal horizons, not be applied mechanically.
+rule_of_thumb: "equity share of portfolio roughly in the neighbourhood of (100 - age)% as a starting frame"
+what_to_check: >
+  Compare asset_allocation_mix.equity against a (100 - age)% reference, adjusted for
+  stated risk_appetite. Flag large mismatches (e.g. near-zero equity for a young,
+  high-risk-appetite saver, or very high equity for a low-risk near-term need).
+sources:
+  - title: "AMFI — Mutual fund basics and asset allocation"
+    url: "https://www.amfiindia.com/investor-corner"
+  - title: "SEBI Investor — Asset allocation and risk profiling"
+    url: "https://investor.sebi.gov.in/"

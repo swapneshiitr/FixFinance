@@ -1,0 +1,13 @@
+id: savings_rate
+statement: >
+  Aim to save and invest a meaningful share of take-home income — commonly ≥ 20–30%.
+  The 50/30/20 frame (≈50% needs, 30% wants, 20% savings) is a simple starting budget.
+rule_of_thumb: "savings_rate (investments + retirement contributions / take-home) ideally >= 0.20"
+what_to_check: >
+  Compare the derived savings_rate against ~0.20. Below ~0.10 signals little room for
+  goals/retirement; a healthy rate accelerates emergency fund, goals, and 80C usage.
+sources:
+  - title: "SEBI Investor — Importance of saving and investing early"
+    url: "https://investor.sebi.gov.in/"
+  - title: "RBI Financial Education — budgeting and savings discipline"
+    url: "https://www.rbi.org.in/financialeducation/Home.aspx"

@@ -1,0 +1,115 @@
+:root {
+  --bg: #0f1419;
+  --panel: #1a212b;
+  --panel-2: #232c38;
+  --text: #e6edf3;
+  --muted: #8b98a5;
+  --accent: #3b82f6;
+  --good: #22c55e;
+  --watch: #f59e0b;
+  --act: #ef4444;
+  --border: #2d3742;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+a { color: var(--accent); }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+.header .brand { font-weight: 700; letter-spacing: 0.3px; }
+.header .brand span { color: var(--accent); }
+
+.container { max-width: 860px; margin: 0 auto; padding: 24px; }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+h1 { font-size: 22px; margin: 0 0 16px; }
+h2 { font-size: 16px; margin: 0 0 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button.secondary { background: var(--panel-2); border: 1px solid var(--border); }
+
+.error { color: var(--act); font-size: 13px; margin-top: 8px; }
+.muted { color: var(--muted); }
+
+/* Chat */
+.chat-log { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+.msg { padding: 10px 14px; border-radius: 12px; max-width: 78%; overflow-wrap: anywhere; }
+.msg.assistant { background: var(--panel-2); align-self: flex-start; border-bottom-left-radius: 2px; }
+.msg.user { background: var(--accent); align-self: flex-end; border-bottom-right-radius: 2px; white-space: pre-wrap; }
+/* Markdown inside assistant bubbles renders as real blocks, tightly spaced. */
+.msg.assistant p { margin: 0 0 8px; }
+.msg.assistant p:last-child { margin-bottom: 0; }
+.msg.assistant ul, .msg.assistant ol { margin: 4px 0; padding-left: 20px; }
+.msg.assistant li { margin: 2px 0; }
+.msg.assistant code { background: rgba(255,255,255,0.08); padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+.msg.assistant h1, .msg.assistant h2, .msg.assistant h3 { font-size: 15px; margin: 6px 0 4px; text-transform: none; letter-spacing: 0; color: var(--text); }
+.chat-input { display: flex; gap: 8px; }
+.chat-input input { flex: 1; }
+
+.progress { height: 8px; background: var(--panel-2); border-radius: 4px; overflow: hidden; margin: 6px 0 2px; }
+.progress > div { height: 100%; background: var(--accent); transition: width 0.3s; }
+
+/* Proforma editor */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.field { margin-bottom: 4px; }
+.flag { font-size: 11px; color: var(--watch); margin-left: 6px; }
+.derived-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.metric { background: var(--panel-2); padding: 12px; border-radius: 8px; }
+.metric .v { font-size: 20px; font-weight: 700; }
+.metric .k { font-size: 12px; color: var(--muted); }
+.row { display: flex; gap: 10px; align-items: center; margin-top: 16px; }
+
+/* Report */
+.chip { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.chip.good { background: rgba(34,197,94,0.2); color: var(--good); }
+.chip.watch { background: rgba(245,158,11,0.2); color: var(--watch); }
+.chip.act { background: rgba(239,68,68,0.2); color: var(--act); }
+.rec { border-left: 3px solid var(--accent); padding: 8px 14px; margin-bottom: 14px; background: var(--panel-2); border-radius: 0 8px 8px 0; }
+.rec .pri { font-size: 11px; text-transform: uppercase; color: var(--muted); }
+.sources { font-size: 12px; margin-top: 6px; }
+.disclaimer { font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 12px; margin-top: 8px; }
+.spinner { color: var(--muted); }

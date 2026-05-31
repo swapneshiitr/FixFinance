@@ -1,0 +1,66 @@
+{
+  "passed": 10,
+  "total": 10,
+  "results": [
+    {
+      "fixture": "lost_zero_extraction",
+      "kind": "extraction",
+      "passed": true,
+      "detail": "sips[0].monthly_amount=15000.0 (want 15000)"
+    },
+    {
+      "fixture": "lost_zero_extraction",
+      "kind": "extraction",
+      "passed": true,
+      "detail": "sips[0].category='equity' (want 'equity')"
+    },
+    {
+      "fixture": "lakh_normalization",
+      "kind": "extraction",
+      "passed": true,
+      "detail": "monthly_take_home=120000.0 (~120000\u00b11)"
+    },
+    {
+      "fixture": "denial_empty_list",
+      "kind": "extraction",
+      "passed": true,
+      "detail": "fds=[] (want [])"
+    },
+    {
+      "fixture": "no_emergency_fund_report",
+      "kind": "report",
+      "passed": true,
+      "detail": "mentions 'emergency fund'"
+    },
+    {
+      "fixture": "no_emergency_fund_report",
+      "kind": "report",
+      "passed": true,
+      "detail": "cites_source=True"
+    },
+    {
+      "fixture": "no_emergency_fund_report",
+      "kind": "report",
+      "passed": true,
+      "detail": "rating[emergency_fund]=act (want act)"
+    },
+    {
+      "fixture": "healthy_saver_report",
+      "kind": "report",
+      "passed": true,
+      "detail": "rating[emergency_fund]=good (want good)"
+    },
+    {
+      "fixture": "healthy_saver_report",
+      "kind": "report",
+      "passed": true,
+      "detail": "cites_source=True"
+    },
+    {
+      "fixture": "report_quality_judge",
+      "kind": "report",
+      "passed": true,
+      "detail": "judge=0.75\u22650.6 \u2014 The report references the user's actual figures an"
+    }
+  ]
+}

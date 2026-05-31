@@ -1,0 +1,56 @@
+# Report fixtures — wrap the proforma, run findings → RAG → synthesis, assert on content.
+name: no_emergency_fund_report
+kind: report
+proforma:
+  monthly_take_home: 80000
+  fixed_household_monthly: 50000
+  epf_monthly: 4000
+  emergency_fund: 0
+  term_life_cover: 0
+  health_insurance_cover: 300000
+  dependents: 1
+  age: 32
+  tax_regime: old
+expect:
+  - report_mentions: "emergency fund"
+  - report_cites_source: true
+  - rating: { dimension: emergency_fund, equals: act }
+---
+name: healthy_saver_report
+kind: report
+proforma:
+  monthly_take_home: 200000
+  fixed_household_monthly: 60000
+  epf_monthly: 15000
+  emergency_fund: 600000
+  term_life_cover: 30000000
+  health_insurance_cover: 1000000
+  dependents: 1
+  age: 35
+  tax_regime: old
+  sips:
+    - { monthly_amount: 25000, category: equity }
+    - { monthly_amount: 10000, category: elss }
+expect:
+  - rating: { dimension: emergency_fund, equals: good }
+  - report_cites_source: true
+---
+name: report_quality_judge
+kind: report
+proforma:
+  monthly_take_home: 90000
+  fixed_household_monthly: 55000
+  epf_monthly: 5000
+  emergency_fund: 80000
+  term_life_cover: 0
+  health_insurance_cover: 400000
+  dependents: 2
+  age: 38
+  tax_regime: old
+expect:
+  - llm_judge:
+      rubric: >
+        The report must (1) reference the user's ACTUAL figures (rupee amounts or
+        months/percentages), and (2) tie each recommendation to a named principle.
+        Score 1.0 only if both hold across most recommendations.
+      threshold: 0.6

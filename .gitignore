@@ -1,0 +1,32 @@
+# Secrets / env
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Data
+*.sqlite
+*.db
+
+# Internal design docs, dev log, and Claude working-context (not published —
+# they reference each other and carry private framing; the public README stands alone)
+docs/
+CLAUDE.md

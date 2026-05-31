@@ -1,0 +1,15 @@
+id: diversification
+statement: >
+  Diversify across asset classes and within them; avoid concentration in a single
+  stock, sector, or scheme. Spreading SIPs across complementary categories reduces
+  unsystematic risk without needing many overlapping funds.
+rule_of_thumb: "no single holding/category dominates; maintain a debt vs equity balance aligned to goals"
+what_to_check: >
+  Inspect sips and other_investments for concentration (e.g. nearly all flows into one
+  category or a single stock). Flag over-concentration and also over-diversification
+  (many overlapping equity funds that add cost, not spread).
+sources:
+  - title: "AMFI — Why diversification matters in mutual fund investing"
+    url: "https://www.amfiindia.com/investor-corner"
+  - title: "SEBI Investor — Do not put all eggs in one basket (diversification)"
+    url: "https://investor.sebi.gov.in/"
