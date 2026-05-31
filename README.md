@@ -99,6 +99,15 @@ curl -s localhost:8000/health | python3 -m json.tool
 docker-compose exec api python evals/run_evals.py   # prints a pass/fail table, exits non-zero on failure
 ```
 
+**Stopping / managing the stack** (run from the project root)
+```bash
+docker-compose stop      # pause all 3 containers; resume with `docker-compose start` (fastest)
+docker-compose down      # stop + remove containers/network; KEEPS the pgdata volume (data survives)
+docker-compose down -v   # also WIPES pgdata → DDL re-runs on next `up` (loses users/proformas/reports/traces)
+```
+- Just pausing → `stop`; clean shutdown keeping data → `down`; fresh slate / schema change → `down -v`.
+- **Ollama is separate** (a host service, not part of compose) and keeps running — stop it if you like with `brew services stop ollama`.
+
 ---
 
 ## Project layout
